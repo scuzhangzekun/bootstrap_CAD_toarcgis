@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>如何获取矢量数据</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <style type="text/css">
+    body {
+        position: relative;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    ul.body {
+        font-size: 18px;
+    }
+    </style>
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    [if lt IE 9]
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    [endif]
+</head>
+
+<body data-spy="scroll" data-target="#mynav" data-offset="70">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <nav class="nav navbar-inverse navbar-fixed-top" role="navigation" id="mynav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="center-block"><a class="navbar-brand" href="#"><img src="picture/logo.png" height="160%" alt="sculogo"></a></div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" id="mytab">
+                    <li class="active"><a href="#preface">总述</a></li>
+                    <li><a href="#google_earth">在Google Earth上描图</a></li>
+                    <li><a href="#openstreetmap">在OpenStreetMap上描图</a></li>
+                    <li><a href="#backmap">添加底图进行描图</a></li>
+                    <li><a href="#taobao">淘宝购买</a></li>
+                    <li><a href="#osm_kml">关于OSM和KML</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container theme-showcase" role="main">
+        <div class="jumbotron">
+            <p style="font-size: 50px;"><strong>如何获取矢量数据？</strong></p>
+            <p>这篇博客将会介绍三种获取矢量数据的方法，并会对OMS和KML文件进行一个简单的解析，这将会有助于了解转换这些文件的工作原理。</p>
+        </div>
+        <div id="preface">
+            <h1>1. 总述</h1>
+            <p>对于初学者而言，获取矢量数据一直是一件比较头痛的事情，尤其是想要获取郊区的矢量数据。其实接下来分享的两种方式也并没有从根本上改变你通过描图获取矢量数据的事实，但是这两种方式能够在某种程度上节省你不少时间。</p>
+        </div>
+        <div id="google_earth">
+            <h1>2. 在Google Earth上描图<a id="google_earth"></a></h1>
+            <p>Google Earth上描图的内容主要有<code>点</code>、<code>线</code>、<code>面</code>三种。描绘过程也比较简单。单击<kbd>鼠标左键</kbd>就确定了一个点的位置，<kbd>鼠标右键</kbd>删除选择的点，把<code>光标</code>移动到点上变为“手”就可以选中点。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" alt="Google Earth描图" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8717.png?raw=true" style="margin: 0 auto;"><br>
+            </div>
+            <p>例如描绘建筑区就可以进行这样的设置，因为设置了透明度，下方的内容也能透出来。 </p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" alt="Google Earth描图" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8718.png?raw=true" style="margin: 0 auto;"><br>
+            </div>
+            <!--
+			<div style="text-align: center;">
+				<iframe src="https://player.bilibili.com/player.html?aid=10636408&cid=17557169&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+			</div>
+			-->
+            <p>在左边的<code>目录</code>部分，<kbd>右键</kbd>点<code>我的地点</code>，建立文件夹，并将描绘的地物拖动到新建的文件夹内。右键点击创建的文件夹<code>尝试</code>，点击<code>将位置另存为</code>，存为<code>kml</code>文件。 </p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" alt="Google Earth描图" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8719.png?raw=true" style="margin: 0 auto;"><br>
+            </div>
+            <p>使用ArcToolBox中的[转换工具]-[有KML转出]-[KML转图层]将数据导入到ArcMap当中，同样右键点击要素类将数据导出为shapefile文件。 </p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" alt="Google Earth描图" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8720.png?raw=true" style="margin: 0 auto;"><br>
+            </div>
+            <div class="alert alert-success" role="alert">
+                反复如此就能完成地图描绘工作，这些文件也可以反复使用，不需要考虑拼接裁图、地理配准等带来的繁杂操作。而且，这样的描图工作相对也比较灵活。<br>
+                最后说一句，这样得到的数据其地理坐标系是WGS_1984，后续分析可能还需要进行一定的转换才能使用。
+            </div>
+        </div>
+        <div id="openstreetmap">
+            <h1>3. 在OpenStreetMap上描图<a id="openstreetmap"></a></h1>
+            <p>这个和在<code>Google Earth上描图</code>的部分基本一样。但也这个平台做得更为出色，首先我们不需要不断调整倾斜和罗盘，另外属性信息的填写也更系统化。当中还有一些小功能也更加人性化。</p>
+            <p>你可以尝试点击这个网址导航到<code>四川大学公共管理学院</code><a href="https://www.openstreetmap.org/export#map=19/30.63223/104.08706" target="_blank">https://www.openstreetmap.org/#map=19/30.63223/104.08659</a>。</p>
+            <p>你需要先注册一个账号以保障你能够在该平台上描图。之后点击<code>编辑</code>下拉菜单中的<code>使用ID(浏览器内编辑器)编辑</code>。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" alt="Google Earth描图" src="picture/osm1.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>因为你是第一次使用，进来会有一个新手教程。点击<code>开始演练</code>接受指导</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" alt="Google Earth描图" src="picture/osm2.png" style="margin: 0 auto;"><br>
+            </div>
+            <p>按照提示一步一步的进行演练，最好认真跟着操作一遍。相信我，这个描图体验绝对比Google Earth好。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/osm3.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>当你完成了教程安排的任务就可以开始描图了。你可以看到，这个图像相对是比较清晰的。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/osm4.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>点击<code>导出</code>就可以进入导出界面。点击<code>手动选择不同区域</code>即可拖动下载范围。点击<code>导出</code>即可导出数据为osm格式文件。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/osm5.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>之后打开这个网站<a href="https://geoconverter.hsr.ch/" target="_blank">GeoConverter</a>，将刚才下载的OSM文件上传转换后下载shapefile文件，打开后就可以直接使用了。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/osm6.png" style="margin: 0 auto;"><br><br>
+            </div>
+        </div>
+        <div id="taobao">
+            <h1>4. 在淘宝上购买<a id="taobao"></a></h1>
+            <p>如果你要对大范围的区域进行分析，可能上述的方法往往并不是很好用，那样会花费你大量的时间。当然诸如高德地图、百度地图、OpenStreetMap等会提供一些API为你提供下载，但是这个可能会有一点麻烦，前两者往往有数量限制，后者你可能将会花费大量时间去清洗数据。</p>
+            <p>这个时候淘宝店铺或许是一个不错的选择。我的购买经历是购买四川省全省的<code>行政边界</code>、<code>水系</code>、<code>高速公路</code>、<code>省道</code>、<code>县道</code>、<code>铁路</code>总共花费了两百多元。可以说只要愿意出钱，你基本就能拿到数据。</p>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">多说一句</h3>
+                </div>
+                <div class="panel-body">
+                    <p>在之前我看到有人在微信公众号里面推荐过<strong><a href="http://www.webmap.cn/main.do?method=index" target="_blank">全国地理信息资源目录服务系统</a></strong>，说这个平台可以给大家提供全国1:100万基础地理数据，整体现势性是2015年，数据内容包含了行政区(面)、水系、公路、铁路、居民点、自然地名等12个图层。我兴致冲冲的提交了申请。过了三个月，什么通知都没有,真的很无奈。0.0</p>
+                    <p>相比较于这个，目前我觉得公开做的比较好的还是纽约市规划局。它的官网提供了这个区域的矢量数据，内容很多。你可以浏览一下他们数据下载的网页，<strong><a href="https://www1.nyc.gov/site/planning/data-maps/open-data.page" target="_blank">Department of City Planning</a></strong></p>
+                    <p>如果你的电脑配置足够好，可以下载下来看一下具体的效果。当然你也可以选择观看下面的这个视频，你可以从第22分钟左右开始看。如果你想要切换清晰度或者发弹幕，他会自动跳转至原网页。</p>
+                </div>
+                <div style="text-align: center;">
+                    <iframe src="https://player.bilibili.com/player.html?aid=16339325&cid=26656854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 890px;height: 620px; max-width: 100%"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="backmap">
+            <h1>5. 添加底图进行描图<a id="backmap"></a></h1>
+            <p>你可以直接在Arcmap中添加底图进行描图，亦或者只做简单标记就直接出图。目前我知道的添加底图的方法有两个</p>
+            <p>
+                <ul>
+                    <li>使用Arcmap预制默认的底图进行描图</li>
+                    <li>通过调用GIS服务器的底图进行描图</li>
+                </ul>
+            </p>
+            <h2>5.1 默认底图</h2>
+            <p>点击<code>添加数据</code>右边的下拉箭头，单击下方的<code>添加底图</code>进行选择。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background.png" style="margin: 0 auto;"><br><br>
+                <img  class="img-responsive" src="picture/background2.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>
+                这里我尝试添加<code>中国地图午夜蓝版</code>，看起来科技感十足。
+            </p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background3.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>好处比较明显，不需要校准，相对比较好看，可以说是很不错的选择。尤其是针对快速出图以及PPT展示来说。</p>
+            <h2>5.2 调用GIS服务器</h2>
+            <p>这个主要是通过在<a href="https://www.mapbox.com/" target="_blank">Mapbox</a>中设置好地图样式，然后再将底图导入ArcGIS使用。这个更为个性化，你可以根据自己的喜好以及别人设计好的优秀样式进行二次创作。</p>
+            <p>你需要自己先注册一个账号，同样是免费的。登录以后点击右上角有一个<code>Studio</code></p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background5.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>进来后就能看到两种样式选择。<code>1</code>这个样式是基本样式，基本就和我们在高德或者百度上看到的差不多。<code>2</code>处的样式则是很多别人设计好的样式内容，你可以自由选择。</p>
+            <p>这里我就以基本样式作为范例进行分享。</p>
+            <p>下面这张图是初始进入的状态，默认是法国巴黎地区。这里选择右边的<code>Map position</code>，按照图中的顺序依次调整。可能这个时间会很长。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/backgroun8.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>一般的情况，不是很希望地图中出现各种标注，直接在左边的图层当中把标注删除即可。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background9.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>点击右边的<code>publish</code>，然后点击<code>Publish as new</code>，稍等一会就可以了。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background10.png" style="margin: 0 auto;"><br>
+                <img  class="img-responsive" src="picture/background11.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>点击右边的<code>share</code>，将下面的<code>Private</code>修改为<code>Public</code>,之后点击<code>Use</code></p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background12.png" style="margin: 0 auto;"><br>
+            </div>
+            <p>在<code>Third party</code>中选择<code>WMTS</code>，点击复制下面链接的按钮。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background13.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>打开Arcmap，点击<code>添加数据</code>，依次选择<code>GIS服务器</code>-<code>添加WMTS服务器</code>，将刚才复制的链接地址复制到地址栏中，点击<code>获取图层</code>。在跳出的提示信息中选择<code>取消</code>，之后点击添加即可。</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/background14.png" style="margin: 0 auto;"><br><br>
+                <img  class="img-responsive" src="picture/background15.png" style="margin: 0 auto;"><br><br>
+                <img  class="img-responsive" src="picture/background16.png" style="margin: 0 auto;"><br><br>
+                <img  class="img-responsive" src="picture/background17.png" style="margin: 0 auto;"><br><br>
+                <img  class="img-responsive" src="picture/background18.png" style="margin: 0 auto;"><br><br>
+                <p>随便输入一个名称，点击添加，对于提示点击确定即可。然后选中<code>Basic Template</code></p>
+                <img  class="img-responsive" src="picture/background19.png" style="margin: 0 auto;"><br><br>
+                <p>然后可能还是需要自己找到目标地点，能够看到这个底图就没有任何的标签了。</p>
+                <img  class="img-responsive" src="picture/background20.png" style="margin: 0 auto;"><br><br>
+            </div>
+            <p>关于mapbox还有很多其他有趣的内容，这个可能需要自己进行更多的探索。</p>
+        </div>
+
+        <div id="osm_kml">
+            <h1>6. 关于OSM和KML<a id="osm_kml"></a></h1>
+            <p>这类型文件其实都是标签格式的文件。通常这类文件不仅仅只是包含几何元素，还包括一些属性和渲染指令，如颜色、符号等。这也就是说你在Google Earth上绘制的带有属性的kml文件，或者是在OpenStreetMap上绘制的osm文件导入ArcMap同样会保留你之前设置的颜色等属性内容。</p>
+            <p>下面我将会对这两类文件进行一个简单的分析，如果你对这部分内容不感兴趣，可以跳过。如果你有意向开发解析这类文件的工具，希望下面的分享能起到抛砖引玉的作用。</p>
+            <p>这里也要说明一下，对于OSM文件的详细信息我也没太弄懂，下面的介绍仅仅是比较浅显的理解。如果你对osm数据结构感兴趣，可以看一下维基百科上的介绍。地址如下<a href="https://wiki.openstreetmap.org/wiki/Elements" target="_blank">osm数据结构分析。</a></p>
+            
+            <h2>5.1 OSM文件</h2>
+            <p>直接上用文本器打开看到的内容，这里我们规定用<code>#</code>包裹的内容是注释，其余则为实际的内容</p>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">OSM文件</h3>
+                </div>
+                <div class="panel-body">
+                    <p>这里同样的我们使用刚才在OpenStreetMap中看到的<mark><strong>公共管理学院</strong></mark>范围内的osm文件。</p>
+                    
+                    <pre>
+<mark>#声明XML文件的版本信息以及编码方式为UTF-8，这样能够支持中文显示#</mark>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+<mark>#声明osm文件的版本信息，主要用于内部数据库信息管理#</mark>
+&lt;osm version="0.6" generator="CGImap 0.6.1 (13180 thorn-03.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/"&gt;
+
+<mark>#主要是说明我们在截图的时候选择的上下左右边界的经纬度信息#</mark>
+&lt;bounds minlat="30.6320300" minlon="104.0865300" maxlat="30.6325800" maxlon="104.0876100"/&gt;
+
+<mark>#<code>node</code>标签表示点的信息，<code>id</code>这个是点的编号信息，与后面的道路以及面的构成有着重要联系，<code>visibe</code>表示点是否可见，<code>changeset</code>这个我目前不知道是什么意思，<code>timestamp</code>这个是上传者上传数据的时间，<code>user</code>是上传者的昵称，<code>uid</code>是上传者的id信息，<code>lat</code>是纬度，<code>lon</code>是经度。以此往下推。#</mark>
+&lt;node id="5037045686" visible="true" version="1" changeset="51143283" timestamp="2017-08-15T14:50:47Z" user="Prcmise" uid="6486941" lat="30.6322680" lon="104.0867379"/&gt;
+
+&lt;node id="5037045687" visible="true" version="1" changeset="51143283" timestamp="2017-08-15T14:50:47Z" user="Prcmise" uid="6486941" lat="30.6320169" lon="104.0874168"/&gt;
+
+……
+
+&lt;node id="5612731872" visible="true" version="2" changeset="58892877" timestamp="2018-05-12T01:00:34Z" user="MAX-C" uid="8227137" lat="30.6327364" lon="104.0873234">
+	<mark>#下面的标签信息记录的就是我们在OpenStreetMap上填写的那些属性信息#</mark>
+	&lt;tag k="addr:city" v="成都市"/&gt;
+	&lt;tag k="addr:district" v="武侯区"/&gt;
+	&lt;tag k="addr:postcode" v="610064"/&gt;
+	&lt;tag k="addr:province" v="四川省"/&gt;
+	&lt;tag k="addr:street" v="四川大学公共管理学院外"/&gt;
+	&lt;tag k="highway" v="crossing"/&gt;
+	&lt;tag k="tactile_paving" v="no"/&gt;
+&lt;/node&gt;
+
+……
+
+<mark>#<code>id</code>是路径编号，<code>&lt;nd ref="5612733553"/&gt;</code>用刚才上面已经写的<code>node</code>的id值作为索引来引用点的经纬度坐标，各个点连线得到路径信息。下面这个是图中的<code>四川大学革命烈士纪念碑</code>的连线情况#</mark>
+&lt;way id="587601044" visible="true" version="1" changeset="58892847" timestamp="2018-05-12T00:53:40Z" user="MAX-C" uid="8227137"&gt;
+  &lt;nd ref="5612733553"/&gt;
+  &lt;nd ref="5612733558"/&gt;
+  &lt;nd ref="5612733554"/&gt;
+  &lt;nd ref="5612733555"/&gt;
+  &lt;nd ref="5612733556"/&gt;
+  &lt;nd ref="5612733553"/&gt;
+  <mark>#注意首尾相连#</mark>
+  <mark>#<code>tag</code>中包含的信息就是我们在OpenStreetMap上标注的道路信息#</mark>
+  &lt;tag k="addr:city" v="成都市"/&gt;
+  &lt;tag k="addr:district" v="武侯区"/&gt;
+  &lt;tag k="addr:postcode" v="610064"/&gt;
+  &lt;tag k="addr:province" v="四川省"/&gt;
+  &lt;tag k="addr:street" v="四川大学公共管理学院"/&gt;
+  &lt;tag k="building" v="yes"/&gt;
+  &lt;tag k="building:levels" v="1"/&gt;
+  &lt;tag k="height" v="3.5"/&gt;
+  &lt;tag k="name" v="四川大学革命烈士纪念碑"/&gt;
+  &lt;tag k="note" v="四川大学革命烈士纪念碑"/&gt;
+ &lt;/way&gt;
+
+ ……
+ &lt;/osm&gt;
+						</pre><br>
+                </div>
+            </div>
+            </div>
+            <h2>5.2 KML文件</h2>
+            <div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">KML文件示例</h3>
+				</div>
+				<div class="panel-body">
+                    <p>kml文件和osm有很多相似之处。</p>
+					<pre>
+<mark>#声明编码方式为utf-8，这样就能够支持中文#</mark>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;kml xmlns="http://maps.opengis.net/kml/2.2"&gt;
+	&lt;Placemark&gt;
+		<mark>#说明点的名称#</mark>
+		&lt;name&gt;Mokingbird Cafe&lt;/name&gt;
+		<mark>#对点进行了描述，这是一个咖啡店#</mark>
+		&lt;description&gt;Coffee Shop&lt;/description&gt;
+		&lt;Point&gt;
+			<mark>#下面是点的坐标信息#</mark>
+			&lt;coordinates&gt;-89.329160,30.310964&lt;/coordinates&gt;
+		&lt;/Point&gt;
+	&lt;/Placemark&gt;
+&lt;/kml&gt;
+					</pre>
+				</div>
+			</div>
+            <p>如果你希望对KML文件有更为深入的了解，可以尝试结合Arcmap工具箱中kml转换工具的python源码进行学习。这个是我之后计划采用的一种学习方式。</p><br><br>
+        </div>
+        
+</body>
+
+</html>

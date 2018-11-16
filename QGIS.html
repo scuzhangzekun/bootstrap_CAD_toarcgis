@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>推荐内容</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <style type="text/css">
+    body {
+        position: relative;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    ul.body {
+        font-size: 18px;
+    }
+    </style>
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    [if lt IE 9]
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    [endif]
+</head>
+<body data-spy="scroll" data-target="#mynav" data-offset="70">
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <nav class="nav navbar-inverse navbar-fixed-top" role="navigation" id="mynav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="center-block"><a class="navbar-brand" href="#"><img src="picture/logo.png" height="160%" alt="sculogo"></a></div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" id="mytab">
+                    <li class="active"><a href="#QGIS">QGIS学习</a></li>
+                    <li><a href="#BIM">关于BIM</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container theme-showcase" role="main">
+    	<div class="jumbotron">
+    		<p style="font-size: 50px;"><strong>其他推荐</strong></p>
+    		<p>这篇博客将会十分简略的介绍一点QGIS和BIM的内容。可能视频内容将会偏多，流量党慎重选择浏览。</p>
+    	</div>
+    	<div>
+    		<h1>QGIS学习<a id="QGIS"></a></h1>
+    		<p>我入门学习的第一款GIS软件是QGIS，当时是社团的学长推荐的。原因十分简单，这款软件免费开源、占用存储空间十分小，运行较为稳定。针对不需要使用复杂的地理数据分析的人而言，这款产品或许是一个十分好的选择。</p>
+    		<p>其实他和ArcGIS有很多相似之处。可能是出于对<code>“开源”</code>独特的喜爱，让我十分喜欢使用QGIS，奈何国内目前还没有关于这款软件的中文教程。他的官网提供了十分详细认真的指导教程，一步一步带着初学者学习。</p>
+    		<p>你可以浏览下面这篇文章，当中对QGIS和ArcGIS进行了一些比较，作为大致了解是很好的。<a href="https://gisgeography.com/qgis-arcgis-differences/" target="_blank"></a></p>
+    		<div style="text-align: center;">
+                <img  class="img-responsive" src="picture/27differ.png" style="margin: 0 auto;"><br>
+            </div>
+    		<p>因为他预制的功能相对有限，其实更多的是借助许许多多的插件完成地理数据的分析。如果你是一名Pyghon或者C++高手，同样可以尝试自己开发一个插件用于地理分析。官方也有比较详细的Python和C++接口使用指南。</p>
+    		<p>你可以访问<a href="https://www.qgis.org/en/docs/index.html" target="_blank">QGIS官方教程</a>查看。这里我个人仍然推荐从QGIS2.18入门，因为现在很多插件还没有更新到QGIS 3.0中。因为入门速度很快，我个人建议在学习完QGIS 2.18后再看看QGIS 3的内容，毕竟还是有一些调整的。</p>
+    		<div style="text-align: center;">
+                <img  class="img-responsive" src="picture/QGIS.png" style="margin: 0 auto;"><br>
+            </div>
+            <p>这里安利一个公众号，<strong>GISer学习团</strong>。公众号的负责人是张云金老师，他是图书《Python地理数据处理》的翻译者，他的公众号当中有很多关于GIS方面的东西。如果你和我一样对GIS感兴趣，可以关注他的公众号，当中有很多有意思的推荐。公众号的二维码在下面</p>
+            <div style="text-align: center;">
+                <img  class="img-responsive" src="picture/weixin.png" style="margin: 0 auto;"><br>
+            </div>
+
+		<div>
+			<h1><a id="BIM"></a></h1>
+			<p>其实我是在观看Esri开发者大会视频的时候偶然间发现的。有人问过我，为什么要将AutoCAD文件导入ArcGIS中使用之类的问题。我当时说的是，主要是将过去一些规划图件赋予地理坐标信息进行分析。直到我看了这些视频后，我觉得自己的想法确实被局限在了2D世界当中。</p>
+			<p>智慧城市建设必然是一个立体的，而过去一些设计往往都是二维的，平面的。现如今需要改变这样的状况。因为我对这方面并没有什么比较多的研究，因此只能通过放视频来蒙混过关了。0.0</p>
+			<p>下面的这个视频主要是介绍什么是BIM。</p>
+			<div style="text-align: center;">
+				<iframe src="https://player.bilibili.com/player.html?aid=22646164&cid=37575810&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+			</div><br><br>
+			<p>下面的两个视频将会介绍AutoCAD出品的Revit是如何工作的。第一个视频是一个简单使用CAD二维图纸建立3D效果的内容；第二个视频则是另一款BIM软件，效果同样惊人。</p>
+			<div style="text-align: center;">
+				<iframe src="https://player.bilibili.com/player.html?aid=4568193&cid=7409134&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+			</div><br><br>
+			<div style="text-align: center;">
+				<iframe src="https://player.bilibili.com/player.html?aid=17721536&cid=28932006&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+			</div><br><br>
+			<p>下面这个视频主要介绍了BIM的应用场景以及相关专业的职业生涯。</p>
+			<div style="text-align: center;">
+				<iframe src="https://player.bilibili.com/player.html?aid=33531360&cid=58704263&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+			</div><br><br>
+			<p>其实Esri也有自己的BIM项目，CityEngine。一些电影特效就是使用CityEngine完成的。</p>
+			<div style="text-align: center;">
+				<iframe src="https://player.bilibili.com/player.html?aid=20805287&cid=34078598&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+			</div><br><br>
+			<p>其实Esri和Autodesktop将展开合作，未来的发展也是值得期待的。</p>
+			<div style="text-align: center;">
+				<iframe src="https://player.bilibili.com/player.html?aid=16736925&cid=27350995&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+			</div><br><br>
+		</div>
+    	</div>
+    </div>
+</body>
+</html>

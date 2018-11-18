@@ -245,8 +245,7 @@
 			<p>对应刚才选取的点建立链接。<strong>注意是从线要素开始连接到参考点</strong>。  </p>
 			<div style="text-align: center;">
 				<img  class="img-responsive" alt="对照图像" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8712.png?raw=true" style="margin: 0 auto;"><br>
-				<img class="img-responsive" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8713.png?raw=true" style="margin: 0 auto;"><br>
-				<p>图十四、十五：对照Google Earth图像进行修正</p><br>
+				<p>图十四：对照Google Earth图像进行修正</p><br>
 			</div>
 			<blockquote style="padding: 10px 20px;margin: 0 0 20px;font-size: 17.5px;border-left: 5px solid #5cb85c;background: #eee">
 				<p><h3 style="color:#5cb85c ">提示：</h3> 由于参照点和要素之间来回拖动十分困难，可以右键点击参照点或者要素选择<strong>缩放至图层</strong>进行快速切换。</p>
@@ -254,7 +253,7 @@
 			<p>点击空间校正工具的<strong>[校正]</strong>，将视图缩放至线要素，基本就能看到要素已经校正到参考点上，但是此时打开属性仍能发现没有坐标系。使用ArcToolBox<strong>[数据管理工具]-[投影和变换]-[定义投影]</strong>将线要素定义为<strong><code>GCS_WGS_1984</code></strong>。  </p>
 			<div style="text-align: center;">
 				<img  class="img-responsive" alt="坐标系转换" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8714.png?raw=true" style="margin: 0 auto;"><br>
-				<p>图十六：定义投影</p><br>
+				<p>图十五：定义投影</p><br>
 			</div>
 		</div>
 
@@ -263,7 +262,7 @@
 			<p>但是目前我们还不知道这个校正的数据到底能不能贴合现状影像图，所以还应该将其导入到Google Earth中观察情况。使用ArcToolBox当中的<strong>[转换工具]-[转为KML]-[图层转KML]</strong>，将线要素所在图层转化为KMZ文件。  </p>
 			<div style="text-align: center;">
 				<img  class="img-responsive" alt="转为KML" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8715.png?raw=true" style="margin: 0 auto;">
-				<p>图十七：转为KML文件</p><br>
+				<p>图十六：转为KML文件</p><br>
 			</div>
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -272,20 +271,20 @@
 				<div class="panel-body">
 					KML文件属于一种基于标签的标记格式的XML文件。另外后面将会介绍的OSM文件同样也是XML文件。通常XML文件不仅仅只是包含几何元素，还包括一些属性和渲染指令，如颜色、符号等。这也就是说你在Google Earth上绘制的带有属性的kml文件直接导入ArcMap同样会保留你之前设置的颜色等属性内容。下面是一个简单的KML格式展示一个位置的示例：<br>
 					<pre>
-						#声明编码方式为utf-8，这样就能够支持中文
-						&lt;?xml version="1.0" encoding="utf-8"?&gt;
-						&lt;kml xmlns="http://maps.opengis.net/kml/2.2"&gt;
-							&lt;Placemark&gt;
-								#说明点的名称
-								&lt;name&gt;Mokingbird Cafe&lt;/name&gt;
-								#对点进行了描述，这是一个咖啡店
-								&lt;description&gt;Coffee Shop&lt;/description&gt;
-								&lt;Point&gt;
-									#下面是点的坐标信息
-									&lt;coordinates&gt;-89.329160,30.310964&lt;/coordinates&gt;
-								&lt;/Point&gt;
-							&lt;/Placemark&gt;
-						&lt;/kml&gt;
+#声明编码方式为utf-8，这样就能够支持中文
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;kml xmlns="http://maps.opengis.net/kml/2.2"&gt;
+	&lt;Placemark&gt;
+	#说明点的名称
+	&lt;name&gt;Mokingbird Cafe&lt;/name&gt;
+	#对点进行了描述，这是一个咖啡店
+	&lt;description&gt;Coffee Shop&lt;/description&gt;
+	&lt;Point&gt;
+		#下面是点的坐标信息
+		&lt;coordinates&gt;-89.329160,30.310964&lt;/coordinates&gt;
+	&lt;/Point&gt;
+	&lt;/Placemark&gt;
+	&lt;/kml&gt;
 					</pre>
 					这种格式的数据一直深受地理数据分析师的喜爱，原因有以下几点：
 					<ul>
@@ -299,7 +298,7 @@
 			<p>之后使用Google Earth打开该文件，重置倾斜和罗盘就能发现，线要素基本已经贴合影像图的情况。  </p>
 			<div style="text-align: center;">
 				<img  class="img-responsive" alt="检验" src="https://github.com/scuzhangzekun/CAD-tranfer-into-ArcGIS/blob/master/%E5%9B%BE%E7%89%8716.png?raw=true" style="margin: 0 auto;">
-				<p>图十八：检验贴合情况</p><br>
+				<p>图十七：检验贴合情况</p><br>
 			</div>
 			<div class="alert alert-success" role="alert">
 				<strong>至此，关于如何将AutoCAD文件导入ArcGIS中进行使用的内容就已经结束了。</strong>如果你对如何获取矢量数据以及我们的制图工作感兴趣，可以在导航栏的<code>补充说明</code>下拉菜单中选择你感兴趣的部分浏览。<br>
@@ -326,21 +325,7 @@
 	<script src="js/jquery.min.js"></script>
 	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$(window).scroll(function () {
-  //小屏幕下的导航条折叠
-  if ($(window).width() < 768) {
-    //点击导航链接之后，把导航选项折叠起来
-    $("#mytab a").click(function () {
-      $("#mytab").collapse('hide');
-    });
-    //滚动屏幕时，把导航选项折叠起来
-    $(window).scroll(function () {
-      $("#mytab").collapse('hide');
-    });
-  }
-});
-	</script>
+
 	
 </body>
 </html>

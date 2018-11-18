@@ -307,7 +307,7 @@
 			</div>
 			<p>下面这个是我看到的一个比较有意思的使用Google Earth以及图像处理软件绘制的夜景图。</p>
 			<div style="text-align: center;">
-				<iframe src="https://player.bilibili.com/player.html?aid=9698556&cid=16029152&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 1080px;height: 670px; max-width: 100%"></iframe>
+				<iframe src="https://player.bilibili.com/player.html?aid=9698556&cid=16029152&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height:auto;"></iframe>
 			</div>
 			<div>
 				<div class="panel panel-primary">
@@ -326,6 +326,21 @@
 	<script src="js/jquery.min.js"></script>
 	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(window).scroll(function () {
+  //小屏幕下的导航条折叠
+  if ($(window).width() < 768) {
+    //点击导航链接之后，把导航选项折叠起来
+    $("#navbar a").click(function () {
+      $("#navbar").collapse('hide');
+    });
+    //滚动屏幕时，把导航选项折叠起来
+    $(window).scroll(function () {
+      $("#navbar").collapse('hide');
+    });
+  }
+});
+	</script>
 	
 </body>
 </html>

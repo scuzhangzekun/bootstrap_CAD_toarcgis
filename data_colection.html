@@ -46,8 +46,8 @@
                 </button>
                 <div class="center-block"><a class="navbar-brand" href="#"><img src="picture/logo.png" height="160%" alt="sculogo"></a></div>
             </div>
-            <div id="mytab" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav" >
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" id="mytab">
                     <li class="active"><a href="#preface">总述</a></li>
                     <li><a href="#google_earth">在Google Earth上描图</a></li>
                     <li><a href="#openstreetmap">在OpenStreetMap上描图</a></li>
@@ -138,7 +138,7 @@
                     <p>如果你的电脑配置足够好，可以下载下来看一下具体的效果。当然你也可以选择观看下面的这个视频，你可以从第22分钟左右开始看。如果你想要切换清晰度或者发弹幕，他会自动跳转至原网页。</p>
                 </div>
                 <div style="text-align: center;">
-                    <iframe src="https://player.bilibili.com/player.html?aid=16339325&cid=26656854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 890px;height: 620px; max-width: 100%"></iframe>
+                    <iframe src="https://player.bilibili.com/player.html?aid=16339325&cid=26656854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%;height: auto; max-width: 100%"></iframe>
                 </div>
             </div>
         </div>
@@ -309,7 +309,21 @@
 			</div>
             <p>如果你希望对KML文件有更为深入的了解，可以尝试结合Arcmap工具箱中kml转换工具的python源码进行学习。这个是我之后计划采用的一种学习方式。</p><br><br>
         </div>
-        
+        <script type="text/javascript">
+        $(window).scroll(function () {
+  //小屏幕下的导航条折叠
+  if ($(window).width() < 768) {
+    //点击导航链接之后，把导航选项折叠起来
+    $("#mytab a").click(function () {
+      $("#mytab").collapse('hide');
+    });
+    //滚动屏幕时，把导航选项折叠起来
+    $(window).scroll(function () {
+      $("#mytab").collapse('hide');
+    });
+  }
+});
+    </script>
 </body>
 
 </html>
